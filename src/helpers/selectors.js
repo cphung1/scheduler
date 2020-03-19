@@ -21,3 +21,19 @@ export function getAppointmentsForDay(state, day) {
 
   return appts
 }
+
+export function getInterview(state, interview) {
+  let interviewInfo;
+
+  if (interview === null ) {
+    return null
+  }
+  
+  for (const interviewer in state.interviewers) {
+    if (interview['interviewer'] === state.interviewers[interviewer]['id']) {
+      interviewInfo = {...interview, interviewer: state.interviewers[interviewer]}
+      return interviewInfo  
+    }
+  }
+
+}
