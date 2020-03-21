@@ -11,6 +11,14 @@ export default function useApplicationData() {
 
   const setDay = day => setState({ ...state, day });
 
+  let dayID;
+
+  for (const num in state.days) {
+    if (state.day === state.days[num].name) {
+      dayID = num
+    }
+  }
+
   useEffect(() => {
     const promiseDays = axios.get('http://localhost:8001/api/days');
     const promiseAppts = axios.get('http://localhost:8001/api/appointments');
@@ -32,7 +40,10 @@ export default function useApplicationData() {
           ...state.appointments,
           [id]: appointment
         };
-        
+
+        // let days = state.days
+        // days[dayID].spots = days[dayID].spots - 1
+        state.days[dayID].spots -= 1
         setState({...state, appointments})
       })
   };
@@ -49,9 +60,13 @@ export default function useApplicationData() {
           [id]: appointment
         };
         
+        // let days = state.days
+        // days[dayID].spots = days[dayID].spots + 1
+        state.days[dayID].spots += 1
         setState({...state, appointments})
       })
   }
-  return { state, setDay, bookInterview, cancelInterview};
+
+  return { state, setDay, bookInterview, cancelInterview };
 
 }
