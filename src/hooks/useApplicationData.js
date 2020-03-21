@@ -41,9 +41,9 @@ export default function useApplicationData() {
           [id]: appointment
         };
 
-        // let days = state.days
-        // days[dayID].spots = days[dayID].spots - 1
-        state.days[dayID].spots -= 1
+        if(!state.appointments[id].interview) {
+          state.days[dayID].spots -= 1
+        }
         setState({...state, appointments})
       })
   };
@@ -60,8 +60,6 @@ export default function useApplicationData() {
           [id]: appointment
         };
         
-        // let days = state.days
-        // days[dayID].spots = days[dayID].spots + 1
         state.days[dayID].spots += 1
         setState({...state, appointments})
       })
