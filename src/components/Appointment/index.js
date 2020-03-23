@@ -31,6 +31,7 @@ export default function Appointment(props) {
     };
     return interview;
   }
+  
 
   return (
     <article className="appointment">
