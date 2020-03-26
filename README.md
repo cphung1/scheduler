@@ -3,28 +3,28 @@ React scheduler that allows users to create, delete and edit appointmments. User
 
 ## Final Product 
 Main Page
-!["Screenshot of main page"]()
+!["Screenshot of main page"](https://github.com/cphung1/scheduler/blob/master/public/images/main_page.png)
 
 Create a new appointment
-!["Screenshot of form to create an appointment"]()
+!["Screenshot of form to create an appointment"](https://github.com/cphung1/scheduler/blob/master/public/images/create_appt.png)
 
 Deletion Confirmation
-!["Screenshot of confirmation for deleting appointment"]()
+!["Screenshot of confirmation for deleting appointment"](https://github.com/cphung1/scheduler/blob/master/public/images/delete_appt.png)
 
 Transition States
-!["Screenshot of loading status for async requests"]()
+!["Screenshot of loading status for async requests"](https://github.com/cphung1/scheduler/blob/master/public/images/transition_saving.png)
 
 Error Handling
-!["Screenshot of error handling"]()
+!["Screenshot of error handling"](https://github.com/cphung1/scheduler/blob/master/public/images/error_msg.png)
 
 Storybook Component Tests
-!["Screenshot of Storybook Component Tests"]()
+!["Screenshot of Storybook Component Tests"](https://github.com/cphung1/scheduler/blob/master/public/images/storybook.png)
 
 Jest Unit Tests
-!["Screenshot of Jest Unit Tests"]()
+!["Screenshot of Jest Unit Tests"](https://github.com/cphung1/scheduler/blob/master/public/images/jest.png)
 
 Cypress E2E Tests
-!["Screenshot of Cypress E2E Tests"]()
+!["Screenshot of Cypress E2E Tests"](https://github.com/cphung1/scheduler/blob/master/public/images/cypress.png)
 
 ## Dependencies 
 
