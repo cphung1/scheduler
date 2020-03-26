@@ -159,7 +159,7 @@ describe ("Application", () => {
 
   it("shows the delete error when failing to delete an existing appointment", async () => {
     axios.delete.mockRejectedValueOnce();
-    const { container } = render(<Application />);
+    const { container, debug } = render(<Application />);
 
     await waitForElement(() => getByText(container, "Archie Cohen"));
 
@@ -180,7 +180,7 @@ describe ("Application", () => {
     
     fireEvent.click(getByAltText(appointment, "Close"));
 
-    expect(getByText(container, "Archie Cohen").toBeInTheDocument())
+    expect(getByText(container, "Archie Cohen")).toBeInTheDocument();
   });
 
 })
