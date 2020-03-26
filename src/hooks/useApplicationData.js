@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function useApplicationData() {
+  // ------------------------- Set applications states ------------------------- // 
   const [state, setState] = useState({
     day: "Monday",
     days: [],
@@ -11,6 +12,7 @@ export default function useApplicationData() {
 
   const setDay = day => setState({ ...state, day });
 
+  // --- Gets the ID for the day given the name of the day (i.e. Monday = 1 --- // 
   let dayID;
   for (const num in state.days) {
     if (state.day === state.days[num].name) {
@@ -18,11 +20,7 @@ export default function useApplicationData() {
     };
   };
 
-  useEffect(() => {
-    // const promiseDays = axios.get('http://localhost:8001/api/days');
-    // const promiseAppts = axios.get('http://localhost:8001/api/appointments');
-    // const promiseIntervierwers = axios.get('http://localhost:8001/api/interviewers');
-    
+  useEffect(() => { 
     const promiseDays = axios.get('/api/days');
     const promiseAppts = axios.get('/api/appointments');
     const promiseIntervierwers = axios.get('/api/interviewers');
@@ -33,6 +31,7 @@ export default function useApplicationData() {
       })
   },[]);
 
+  // ------------------------- Function to book interview ------------------------- // 
   function bookInterview(id, interview) {
     return axios.put(`http://localhost:8001/api/appointments/${id}`, {interview})
       .then(() => {
@@ -53,6 +52,7 @@ export default function useApplicationData() {
       });
   };
 
+  // ------------------------- Function to cancel interview ------------------------- // 
   function cancelInterview(id, interview) {
     return axios.delete(`http://localhost:8001/api/appointments/${id}`, {interview})
       .then(() => {

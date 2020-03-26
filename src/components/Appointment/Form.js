@@ -7,10 +7,10 @@ export default function Form(props) {
   const [error, setError] = useState("");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
 
+  // upon hitting save button, handles the submission
   const handleSubmission = (event) => {
     event.preventDefault();
     validate();
-    // props.onSave(name, interviewer);
   };
 
   const reset = function() {
@@ -23,15 +23,16 @@ export default function Form(props) {
     props.onCancel();
   };
 
+  // Function to make sure the name area is not left blank, displays approrpiate message if left blank
   function validate() {
     if (name === "") {
       setError("Student name cannot be blank");
       return;
-    }
-    
+    };
+
     setError("");
     props.onSave(name, interviewer);
-  }
+  };
 
   return (
     <main className="appointment__card appointment__card--create">
@@ -57,5 +58,5 @@ export default function Form(props) {
         </section>
       </section>
     </main>
-  )
-}
+  );
+};

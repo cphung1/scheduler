@@ -8,7 +8,6 @@ import Form from "components/Appointment/Form";
 
 afterEach(cleanup);
 
-
 describe("Form", () => {
   const interviewers = [
     {
@@ -42,7 +41,9 @@ describe("Form", () => {
     );
     
     fireEvent.click(getByText("Save"));
+    
     expect(getByText(/student name cannot be blank/i)).toBeInTheDocument();
+
     expect(onSave).not.toHaveBeenCalled();
   });
   
@@ -55,6 +56,7 @@ describe("Form", () => {
     fireEvent.click(getByText("Save"));
   
     expect(getByText(/student name cannot be blank/i)).toBeInTheDocument();
+
     expect(onSave).not.toHaveBeenCalled();
   
     fireEvent.change(getByPlaceholderText("Enter Student Name"), {
@@ -66,6 +68,7 @@ describe("Form", () => {
     expect(queryByText(/student name cannot be blank/i)).toBeNull();
   
     expect(onSave).toHaveBeenCalledTimes(1);
+
     expect(onSave).toHaveBeenCalledWith("Lydia Miller-Jones", null);
   });
 

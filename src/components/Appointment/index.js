@@ -1,15 +1,15 @@
 
 import React from "react";
 
-import useVisualMode from "hooks/useVisualMode"
-import "components/Appointment/styles.scss"
-import Header from "components/Appointment/Header"
-import Show from "components/Appointment/Show"
-import Empty from "components/Appointment/Empty"
-import Form from "components/Appointment/Form"
-import Status from "components/Appointment/Status"
-import Confirm from "components/Appointment/Confirm"
-import Error from "components/Appointment/Error"
+import useVisualMode from "hooks/useVisualMode";
+import "components/Appointment/styles.scss";
+import Header from "components/Appointment/Header";
+import Show from "components/Appointment/Show";
+import Empty from "components/Appointment/Empty";
+import Form from "components/Appointment/Form";
+import Status from "components/Appointment/Status";
+import Confirm from "components/Appointment/Confirm";
+import Error from "components/Appointment/Error";
 
 const EMPTY = "EMPTY";
 const SHOW = "SHOW";
@@ -21,6 +21,8 @@ const EDIT = "EDIT";
 const ERROR_SAVE = "ERROR_SAVE";
 const ERROR_DELETE = "ERROR_DELETE";
 
+
+// ------------------------- Compiles all appointment copmonents together and dicatates which component is to be shown based on the state ------------------------- // 
 export default function Appointment(props) {
   const { mode, transition, back } = useVisualMode(props.interview ? SHOW : EMPTY);
 
@@ -30,7 +32,7 @@ export default function Appointment(props) {
       interviewer
     };
     return interview;
-  }
+  };
   
 
   return (
@@ -101,5 +103,5 @@ export default function Appointment(props) {
         />
       )}
     </article>
-  )
-}
+  );
+};

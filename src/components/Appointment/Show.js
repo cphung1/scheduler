@@ -1,6 +1,7 @@
 
 import React from "react";
 
+// ------------------------- Displays existing appointment ------------------------- // 
 export default function Show(props) {
   return (
     <main className="appointment__card appointment__card--show">
@@ -28,5 +29,5 @@ export default function Show(props) {
         </section>
       </section>
     </main>
-  )
-}
+  );
+};

@@ -8,7 +8,6 @@ import {
   fireEvent, 
   getByText, 
   prettyDOM, 
-  wait, 
   getAllByTestId,
   getByAltText,
   getByPlaceholderText,
@@ -18,8 +17,6 @@ import {
 } from "@testing-library/react";
 
 import Application from "components/Application";
-
-
 
 afterEach(cleanup);
 
@@ -34,13 +31,11 @@ describe ("Application", () => {
     expect(getByText("Leopold Silvers")).toBeInTheDocument();
   });
   
-  
   it("loads data, books an interview and reduces the spots remaining for Monday by 1", async () => {
-    const { container, debug } = render(<Application />);
+    const { container } = render(<Application />);
 
     await waitForElement(() => getByText(container, "Archie Cohen"));
     
-    const appointments = getAllByTestId(container, "appointment");
     const appointment = getAllByTestId(container, "appointment")[0]; 
 
     fireEvent.click(getByAltText(appointment, "Add"));
@@ -102,15 +97,16 @@ describe ("Application", () => {
 
   it("loads data, edits an interview and keeps the spots remaining for Monday the same", async () => {
     // 1. Render the Application.
-    const { container, debug } = render(<Application />);
+    const { container } = render(<Application />);
+
     // 2. Wait until the text "Archie Cohen" is displayed. 
     await waitForElement(() => getByText(container, "Archie Cohen"));
+
     // 3. Click the "Edit" button on the book appointment. 
     const appointment = getAllByTestId(container, "appointment").find(
       appointment => queryByText(appointment, "Archie Cohen")
     );
     fireEvent.click(queryByAltText(appointment, "Edit"));
-
   
     // 4. Change the name of student. 
     fireEvent.change(getByPlaceholderText(appointment, /enter student name/i), {
@@ -118,10 +114,13 @@ describe ("Application", () => {
     });
     // 5. Click the "Save" button on the book appointment.
     fireEvent.click(queryByText(appointment, "Save"));
+
     // 6. Check that the element with the text "Saving is displayed".
     expect(getByText(appointment, "Saving")).toBeInTheDocument();
+
     // 7. wait until student name is displayed.
     await waitForElement(() => getByText(appointment, "Lydia Miller-Jones"));
+
     // 8. check that the spots remaining is still 1.  
     const day = getAllByTestId(container, "day").find(day =>
       queryByText(day, "Monday")
@@ -133,11 +132,12 @@ describe ("Application", () => {
 
   it("shows the save error when failing to save an appointment", async () => {
     axios.put.mockRejectedValueOnce();
-    const { container, debug } = render(<Application />);
+    const { container } = render(<Application />);
     await waitForElement(() => getByText(container, "Archie Cohen"));
     const appointment = getAllByTestId(container, "appointment")[0]; 
     
     fireEvent.click(getByAltText(appointment, "Add"));
+
     fireEvent.change(getByPlaceholderText(appointment, /enter student name/i), {
       target: { value: "Lydia Miller-Jones" }
     });
@@ -148,7 +148,9 @@ describe ("Application", () => {
 
     expect(getByText(appointment, 'Saving')).toBeInTheDocument();
     await waitForElement(() => getByText(appointment, "Error"));
+
     expect(getByText(appointment, "An error has occured while trying to save the appointment.")).toBeInTheDocument();
+
     fireEvent.click(getByAltText(appointment, "Close"));
 
     expect(getByDisplayValue(appointment, ""))
@@ -157,7 +159,7 @@ describe ("Application", () => {
 
   it("shows the delete error when failing to delete an existing appointment", async () => {
     axios.delete.mockRejectedValueOnce();
-    const { container, debug } = render(<Application />);
+    const { container } = render(<Application />);
 
     await waitForElement(() => getByText(container, "Archie Cohen"));
 

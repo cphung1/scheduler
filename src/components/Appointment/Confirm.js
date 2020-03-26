@@ -1,6 +1,7 @@
 import React from "react";
-import Button from "components/Button"
+import Button from "components/Button";
 
+// ------------------------- Confirmation of deletiong of appointment ------------------------- // 
 export default function Confirm(props) {
   return (
     <main className="appointment__card appointment__card--confirm">
@@ -10,5 +11,5 @@ export default function Confirm(props) {
         <Button danger onClick={props.onConfirm}>Confirm</Button>
       </section>
     </main>
-  )
-}
+  );
+};

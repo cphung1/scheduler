@@ -1,3 +1,4 @@
+// ------------------------- Fixtures ------------------------- // 
 const fixtures = {
   days: [
     {
@@ -53,6 +54,7 @@ const fixtures = {
   }
 };
 
+// ------------------------- Mock Modules ------------------------- // 
 export default {
   defaults: { baseURL: "" },
   get: jest.fn(url => {

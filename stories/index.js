@@ -19,6 +19,8 @@ import Status from "components/Appointment/Status";
 import Error from "components/Appointment/Error";
 import Form from "components/Appointment/Form";
 
+
+// ------------------------- Data to be used for testing purposes ------------------------- // 
 const days = [
   {
     id: 1,

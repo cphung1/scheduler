@@ -1,9 +1,8 @@
 import React from "react";
-
 import "components/Button.scss";
-// import { action } from "@storybook/addon-actions/dist/preview";
 import classnames from "classnames";
 
+// ------------------------- displays appropriate button ------------------------- // 
 export default function Button(props) {
    const buttonClass = classnames("button", {
       'button--confirm' : props.confirm,
@@ -20,4 +19,4 @@ export default function Button(props) {
       </button>
    );
 
-}
+};

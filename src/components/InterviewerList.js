@@ -3,6 +3,7 @@ import "components/InterviewerList.scss";
 import InterviewerListItem from "components/InterviewerListItem";
 import PropTypes from 'prop-types';
 
+// ------------------------- shows list of interviewers ------------------------- // 
 export default function InterviewerList(props) {
   InterviewerList.propTypes = {
     value: PropTypes.number,
@@ -29,4 +30,4 @@ export default function InterviewerList(props) {
     </ul>
   </section>
   );
-}
+};

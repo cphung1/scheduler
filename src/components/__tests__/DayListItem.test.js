@@ -3,10 +3,6 @@ import React from "react";
 import { 
   render, 
   cleanup,
-  prettyDOM,
-  waitForElement,
-  getByText,
-  getAllByTestId
  } from "@testing-library/react";
 
 import DayListItem from "components/DayListItem";
@@ -14,10 +10,6 @@ import DayListItem from "components/DayListItem";
 afterEach(cleanup);
 
 describe("DayListItem", () => {
-  // xit("renders without crashing", () => {
-  //   render(<DayListItem />);
-  // });
-  
   it("renders 'no spots remaining' when there are 0 spots", () => {
     const { getByText } = render(<DayListItem name="Monday" spots={0} />);
     expect(getByText("no spots remaining")).toBeInTheDocument();
@@ -33,7 +25,4 @@ describe("DayListItem", () => {
     expect(getByText("2 spots remaining")).toBeInTheDocument();
   });
   
-  
-
-
 })
