@@ -56,7 +56,7 @@ export default function Appointment(props) {
               .then(() => transition(SHOW))
               .catch(error => transition(ERROR_SAVE, true))
           }}
-          onCancel={() => back()}
+          onCancel={back}
         />
       )}
       {mode === SAVING && (
@@ -87,19 +87,19 @@ export default function Appointment(props) {
               .then(() => transition(SHOW))
               .catch(error => transition(ERROR_SAVE, true))
           }}
-          onCancel={() => back()}
+          onCancel={back}
         />
       )}
       {mode === ERROR_DELETE && (
         <Error 
           message="An error has occured while trying to delete the appointment."
-          onClose={() => back()}
+          onClose={back}
         />
       )}
       {mode === ERROR_SAVE && (
         <Error 
           message="An error has occured while trying to save the appointment."
-          onClose={() => back()}
+          onClose={back}
         />
       )}
     </article>
