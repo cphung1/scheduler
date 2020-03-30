@@ -23,12 +23,17 @@ export default function Form(props) {
     props.onCancel();
   };
 
-  // Function to make sure the name area is not left blank, displays approrpiate message if left blank
+  // Function to make sure the name and interviewer area is not left blank, displays approrpiate message if left blank
   function validate() {
     if (name === "") {
       setError("Student name cannot be blank");
       return;
     };
+
+    if (interviewer === null) {
+      setError("Must select an interviewer");
+      return;
+    }
 
     setError("");
     props.onSave(name, interviewer);
