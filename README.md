@@ -1,5 +1,5 @@
 # Interview Scheduler
-React scheduler that allows users to create, delete and edit appointmments. Users can enter the name of interviewee, and select from a list of available interviewers. Application includes built-in test features.
+React scheduler that allows users to create, delete and edit appointments. Users can enter the name of interviewee, and select from a list of available interviewers. Application includes built-in test features.
 
 ## Final Product 
 **Main Page**
